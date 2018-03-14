@@ -2,7 +2,6 @@ function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
-  const deleteToDo = document.getElementById('deleteToDo');
 
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -35,23 +34,18 @@ function onReady() {
     let deleteButton=document.createElement('button');
     deleteButton.innerHTML = "<span>Delete</span>";
 
-    // set the input's type to a delete button
-    deleteButton.type = "button";
-
-    // set the input's value
-    deleteButton.value = "delete";
-
     // attach the delete button to the li
     newLi.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', function() {
+      newLi.parentNode.removeChild(newLi);
+
+    });
+
   });
 
-  deleteButton.addEventListener('click', function() {
-    newLi.parentNode.removeChild(newLi);
-  });
+};
 
-}
-
-  
 
 window.onload = function() {
    onReady();
