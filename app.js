@@ -9,8 +9,8 @@ function onReady() {
 
     toDos.push ({
       title: newToDoText.value,
-      complete: false
-      id: id.value;
+      complete: false,
+      id: id.value
     });
 
     id=id+1;
@@ -33,16 +33,18 @@ function onReady() {
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
       newLi.appendChild(deleteButton);
-    });
 
       deleteButton.addEventListener ('click', function() {
         newLi.parentNode.removeChild(newLi);
+        console.log("Delete");
         deleteToDoList(toDo);
         renderTheUI();
+      });
 
-        function deleteToDoList (toDo){
+        function deleteToDoList(toDo){
           let deleteToDo = toDos.filter (toDo => toDo.id);
         };
+
       });
     }
 
