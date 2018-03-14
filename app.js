@@ -32,8 +32,8 @@ function onReady() {
      newToDoText.value = '';
 
     // create a new input
-    let deleteButton=document.createElement('input');
-    deleteButton.onclick = function(){ console.log("delete button clicked")};
+    let deleteButton=document.createElement('button');
+    deleteButton.innerHTML = "<span>Delete</span>";
 
     // set the input's type to a delete button
     deleteButton.type = "button";
@@ -44,13 +44,14 @@ function onReady() {
     // attach the delete button to the li
     newLi.appendChild(deleteButton);
   });
+
+  deleteButton.addEventListener('click', function() {
+    newLi.parentNode.removeChild(newLi);
+  });
+
 }
 
-deleteToDo.addEventListener('submit', event => {
-  event.preventDefault();
-
-
-});
+  
 
 window.onload = function() {
    onReady();
