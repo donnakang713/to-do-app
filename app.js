@@ -29,9 +29,11 @@ function onReady() {
       const deleteButton= document.createElement('button');
       deleteButton.innerHTML = "<span>Delete</span>";
       newLi.textContent = toDo.title;
+
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
       newLi.appendChild(deleteButton);
+    });
 
       deleteButton.addEventListener ('click', function() {
         newLi.parentNode.removeChild(newLi);
@@ -42,17 +44,14 @@ function onReady() {
           let deleteToDo = toDos.filter (toDo => toDo.id);
         };
       });
-    });
-  }
-  
+    }
+
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
   });
-
   renderTheUI();
 }
-
 
 window.onload = function() {
    onReady();
