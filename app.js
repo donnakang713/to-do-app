@@ -2,7 +2,7 @@ function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
-  const deleteToDoForm = document.getElementById('deleteToDoForm');
+  const deleteToDo = document.getElementById('deleteToDo');
 
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -30,8 +30,27 @@ function onReady() {
 
     //empty the input
      newToDoText.value = '';
+
+    // create a new input
+    let deleteButton=document.createElement('input');
+    deleteButton.onclick = function(){ console.log("delete button clicked")};
+
+    // set the input's type to a delete button
+    deleteButton.type = "button";
+
+    // set the input's value
+    deleteButton.value = "delete";
+
+    // attach the delete button to the li
+    newLi.appendChild(deleteButton);
   });
 }
+
+deleteToDo.addEventListener('submit', event => {
+  event.preventDefault();
+
+
+});
 
 window.onload = function() {
    onReady();
