@@ -39,11 +39,8 @@ function onReady() {
         console.log("Delete");
         deleteToDoList(toDo);
         renderTheUI();
+        toDos = toDos.filter (toDo => toDo.id);
       });
-
-        function deleteToDoList(toDo){
-          let deleteToDo = toDos.filter (toDo => toDo.id);
-        };
 
       });
     }
