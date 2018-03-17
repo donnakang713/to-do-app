@@ -11,7 +11,7 @@ function onReady() {
     toDos.push ({
       title: newToDoText.value,
       complete: false,
-      id: id.value
+      id: id
     });
 
     id=id+1;
@@ -37,14 +37,14 @@ function onReady() {
 
       deleteButton.addEventListener ('click', function() {
         newLi.parentNode.removeChild(newLi);
-        deleteToDoList(toDo);
+        deleteToDo(toDo.id);
         renderTheUI();
         console.log("Delete");
       });
 
-      function deleteToDoList(toDo) {
-              toDos = toDos.filter(toDo => toDo.id);
-            };
+      function deleteToDo(id) {
+        toDos = toDos.filter(toDo => toDo.id !== id);
+      }
       });
     }
 
